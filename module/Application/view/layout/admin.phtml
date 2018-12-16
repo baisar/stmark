@@ -1,0 +1,48 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('St Mark of Orlando LLC')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/admin.css'))
+            ->prependStylesheet($this->basePath('css/materialize.min.css'))
+            ->prependStylesheet($this->basePath('css/flexslider.css'))
+            ->prependStylesheet($this->basePath('css/lightbox.css'))
+        ?>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <?= $this->headScript()
+            ->prependFile($this->basePath('js/jquery.flexslider.js'))
+            ->prependFile($this->basePath('js/lightbox.js'))
+            ->prependFile($this->basePath('js/materialize.min.js'))
+            ->prependFile($this->basePath('js/masonry.pkgd.js'))
+            ->prependFile($this->basePath('js/1.js'))
+        ?>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div>
+                <a href="<?php echo $this->url("home") ?>" id="logo" class="left <?php if(isset($this->layout()->hp)) echo "red-text active_logo" ?>">ST MARK(temporarily)</a>
+                <?php 
+                    $partialMenu = array('layout/topnav.phtml','default');
+                    $this->navigation('navigation')->menu()->setPartial($partialMenu);  
+                    echo $this->navigation("navigation");  
+                ?>
+            </div>
+        </header>
+        <a class="open_menu"></a>
+
+        <?php echo $this->content ?>
+    </body>
+        <?= $this->inlineScript() ?>
+</html>

@@ -1,0 +1,272 @@
+html,body{ min-height: 100%; }
+body{ font-family: 'PT Sans', sans-serif; font-size: 16px; background: #EEEEEE; }
+*{ padding: 0; margin: 0; box-sizing: border-box; }
+/*----------------------------------------------------*/
+.up{
+	height:100%;
+	background: #000;
+}
+/*#HEADER*/
+header{
+	height: 88px;
+	position: fixed;
+	top:0;
+	z-index: 99;
+	width: 100%;
+	transition: all .5s;
+	background: #000;
+}
+header > div{ height: 100%; margin: 0 auto; }
+#logo{
+	width: 270px; height: 100%;
+	position: absolute;
+	top: 0;
+	transition: all .5s;
+	line-height: 88px;
+	font-size: 27px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	opacity: .5;
+}
+#logo:hover{ opacity: .7; }
+
+/* #MAINMENU*/
+.menu{
+	max-width: 1200px;
+	height: 88px;
+	margin: 0 auto;
+	text-align: center;
+	overflow: hidden;
+}
+.menu li{ display: inline-block; }
+.menu li a{
+	float: right;
+	padding: 0 10px;
+	text-transform: uppercase;
+	color: white;
+	font-size: 17px;
+	line-height: 88px;
+	transition: color .5s;
+	position: relative;
+	opacity: .7;
+	font-weight: bold;
+}
+.menu i{
+	position: relative;
+	top: 36px;
+	right: -7px;
+	font-size: 17px;
+	opacity: .5;
+}
+.menu a.active{ 
+	color: red;
+	text-decoration: underline;
+}
+.menu li:last-child a:after{
+	background: none;
+}
+/*.menu a:hover{ text-decoration: underline; }*/
+.menu a.page_active{ color: orange; }
+
+/*#CONTENT*/
+#content{ min-height: 400px; }
+
+/*SLIDER MAIN PAGE*/
+#slider{
+	position: relative;
+	height: 100%; 
+	background: #000;
+	overflow: hidden; 
+	z-index: 1;
+}
+#slider img{
+	width: 100%;
+	position: relative;
+	top: -0px;
+	z-index: 99;
+	opacity: .5;
+}
+#div{
+	position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 15%;
+    width: 70%;
+    text-align: center;
+    margin-top: -120px;
+    z-index: 99;
+}
+#div h1{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    position: relative;
+    margin-top: 0;
+}
+#div h1:before{
+	content: "";
+	width: 100px;
+	height: 4px;
+	background: white;
+	position: absolute;
+	left: 50%;
+	bottom: -30px;
+	margin-left: -50px;
+	opacity: .5;
+}
+#div p{
+	font-size: 30px;
+	color: white;
+	margin: 48px 0 0;
+	opacity: .7;
+}
+#div a{
+	margin-top: 30px;
+}
+.trusted{
+	max-width: 1600px;
+	margin: 0px auto 70px;
+	padding: 40px 0 70px;
+	/*border-bottom: 1px solid rgba(0,0,0,.2);*/
+
+}
+.trusted > a{
+	font-size: 30px; 
+	padding: 0px 0 10px;
+	font-weight: bold;
+	float: left;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+}
+.trusted ul li a{
+	float: left;
+	width: 200px;
+}
+.trusted ul li a img{
+	height: 100%;
+	width: auto !important;
+}
+
+/*#mainpage*/
+.main_div{
+	margin: 0 -15px;
+}
+.main_div > div{
+	padding: 20px 20px !important
+}
+.main_div div img{
+	border-radius: 5px;
+}
+.main_divs > div{
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 0 5px; 
+	padding: 10px 0;
+}
+.service{
+	position: relative;
+}
+.service > span{
+	position: absolute;
+	width: 100%;
+	color: white;
+	font-size: 20px;
+	top: 40%;
+	text-align: center;
+}
+
+/*#SP*/
+.sp{
+}
+.sp i{
+	width: 100%;
+	font-size: 100px;
+	text-align: center;
+	padding: 20px 0;
+}
+.pt{
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+	padding: 0 0 10px;
+}
+
+/*#TAGS*/
+h1{ font-size: 25px; }
+h2{ font-size: 24px; }
+h3{ font-size: 23px; }
+h4{ font-size: 22px; }
+a{ color: #000; }
+
+/*#ADDITIONAL*/
+.left{ float: left; }
+.right{ float: right; }
+.center{ text-align: center; }
+.clear{ clear: both; }
+.hide{ display: none; }
+.show{ display: block; }
+.opacity01{ opacity: .1; }
+.nolist{ list-style: none; }
+.cursor{cursor: pointer;}
+.overflow{ overflow: hidden; }
+.mw{ max-width: 1600px; margin: 40px auto 70px; }
+.border{ border-bottom: 1px solid rgba(0,0,0,.2); }
+.bold{ font-weight: bold; }
+.mg{ margin: 10px 0; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+}
+.page_title{
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0 0 20px;
+}
+
+/*#resources*/
+.grid{
+	margin: 0 -5px;
+}
+.grid-item{
+	width: 20%; float: left;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+/*#pageheader*/
+.pageheader{
+	height: 300px;
+	background: #000;
+	text-align: center;
+	line-height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+.pageheader img{
+	opacity: .2;
+	height:100%;
+	position: absolute;
+	left: -16%;
+}
+.pageheader h1{
+	line-height: 300px;
+	font-size: 30px;
+	color: white;
+	margin: 0 !important;
+}
+
+/*#pagecontent*/
+.pagecontent{
+	overflow: hidden;
+}
+.pagecontent > h2{
+	font-size: 25px;
+	text-transform: uppercase;
+}

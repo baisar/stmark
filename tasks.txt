@@ -1,0 +1,26 @@
+Tasks
+	Contacts page
+		Contact form
+			send message to email
+			recover email stmark007web@gmail.com
+			map
+			design
+		logistic services
+			design
+			view
+		apply for job
+			What job you would like to apply
+			2 parts
+				1 Drivers
+				2 Operators
+			Contacts
+		Resources
+			docs masonry with description
+			lightbox
+		About us
+	Log
+	Check code
+	Check design
+	Responsive design
+	Github code
+
