@@ -98,24 +98,25 @@ header > div{
 	position: relative;
 	top: -0px;
 	z-index: 99;
-	opacity: 1;
+	opacity: .2;
 }
 #map{
 	position: absolute;
-	width: 50%;
+	width: 40%;
 	height: 400px;
 	z-index: 99;
 	bottom: 0;
 }
 #map > img{
-	width: 100%;
+	width: 80%;
+	padding-left: 10%;
 }
-/*#div{
+#div{
 	position: absolute;
     z-index: 1;
-    top: 50%;
-    left: 15%;
-    width: 70%;
+    top: 30%;
+    left: 0%;
+    width: 40%;
     text-align: center;
     margin-top: -120px;
     z-index: 99;
@@ -128,26 +129,9 @@ header > div{
     position: relative;
     margin-top: 0;
 }
-#div h1:before{
-	content: "";
-	width: 100px;
-	height: 4px;
-	background: white;
-	position: absolute;
-	left: 50%;
-	bottom: -30px;
-	margin-left: -50px;
-	opacity: .5;
-}
-#div p{
-	font-size: 30px;
-	color: white;
-	margin: 48px 0 0;
-	opacity: .7;
-}
 #div a{
-	margin-top: 30px;
-}*/
+	/*margin-top: 30px;*/
+}
 .slider{
 	position: absolute;
 	top: 30%; left: 25%;
