@@ -1,0 +1,38 @@
+<div class="valign-wrapper logincontainer">
+	<div class="row center-align">
+
+		<?php 
+	    	$form->setAttribute("action",$this->url("admin",["action" => "index"])); 
+	    	$form->prepare(); 
+
+	    	echo $this->form()->openTag($form); 
+	    ?>
+			<div class="row">
+			  	<p>Login</p>
+
+			<?php
+	    		$e = $form->get("email"); 
+	            echo "<div class='input-field col s12'>"; 
+	            echo "<i class='material-icons prefix'>email</i>"; 
+	            echo $this->formInput($e); 
+	            echo $this->formLabel($e); 
+	            echo "</div>"; 
+
+	            $e = $form->get("pass"); 
+	            echo "<div class='input-field col s12'>"; 
+	            echo "<i class='material-icons prefix'>security</i>"; 
+	            echo $this->formInput($e); 
+	            echo $this->formLabel($e); 
+	            echo "</div>"; ?>
+
+				<p class="clear"></p>
+
+				<button class="btn waves-effect waves-light black left" style="margin-left: 20px;">
+			  		<i class="material-icons right">send</i>
+			  		LOG IN
+				</button>
+			</div>
+    	<?php echo $this->form()->closeTag(); ?>
+
+	</div>
+</div>

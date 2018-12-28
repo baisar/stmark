@@ -1,7 +1,13 @@
 <?php 
 	namespace Main\Filter; 
 
-	use Zend\InputFilter\InputFilter; 
+	use Zend\InputFilter\InputFilter,
+		Zend\Filter\File\RenameUpload,
+		Zend\Validator\File\IsImage,
+		Zend\Validator\File\ImageSize,
+		Zend\Validator\File\Size, 
+		Zend\Validator\File\Extension;
+
 
 	/**
 	* EditFilter
@@ -9,73 +15,39 @@
 	class EditFilter extends InputFilter
 	{
 		
-		function __construct($manager,$sameEmail)
+		function __construct()
 		{
 			$this->add([
-				"name" => "nick",
-				"required" => 1,
+				"name" => "thumbnail",
+				"required" => false,
 				"validators" => [
 					[
-						"name" => "StringLength",
+						"name" => "ImageSize",
 						"options" => [
-							"min" => 4,
-							"max" => 20
+							"minWidth" => 400,
+							"minHeight" => 300
 						]
 					],
 					[
-						"name"=> "NotEmpty"
-					]
-				],
-				"filters" => [
-					["name" => "StripTags"],
-					["name" => "StringTrim"]
-				]
-			]); 
-			if(!$sameEmail){
-				$this->add([
-					"name" => "email",
-					"required" => 1,
-					"validators" => [
-						[
-							"name" => "EmailAddress",
-						],
-						[
-							"name" => "DoctrineModule\Validator\NoObjectExists",
-							"options" => [
-								"object_repository" => $manager->getRepository("Application\Entity\User"),
-								"fields" => "email",
-								"messages" => array(
-									"objectFound" => "Пользователь с таким тел. уже зарегистрирован"
-								)
+						"name" => Size::class,
+						"options" => [
+							"max" => "5MB",
+							"messages" => [
+								"fileSizeTooBig" =>  $translator->translate(_("Макс размер фотографии 5MB"))
 							]
-						],
-					],
-					"filters" => [
-						["name" => "StripTags"],
-						["name" => "StringTrim"]
-					]
-				]); 
-			}
-			$this->add([
-				"name" => "cell",
-				"required" => 1,
-				"validators" => [
-					[
-						"name" => "StringLength",
-						"options" => [
-							"min" => 9,
-							"max" => 9
 						]
-					],
+					],					
 					[
-						"name"=> "Digits"
+						"name" => Extension::class,
+						"options" => [
+							"extension" => ["jpeg","png","JPG","JPEG","jpg","PNG"],
+							"messages" => [
+								"fileExtensionFalse" =>  $translator->translate(_("Фотогрфия должна быть в формате JPG,PNG"))
+							]
+ 						]
 					]
-				],
-				"filters" => [
-					["name" => "StripTags"],
-					["name" => "StringTrim"]
 				]
-			]); 
+			]);
 		}
 	}
 

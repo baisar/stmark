@@ -6,9 +6,9 @@
 		"navigation"=>[
 			"default"=>[
 				[
-					"label" => "logistic services",
+					"label" => "Services",
 					"route" => "main",
-					"action" => "logistic-services",
+					"action" => "services",
 					"icon" => "sync"
 				],
 				[
@@ -28,13 +28,7 @@
 					"route" => "main",
 					"action" => "contacts",
 					"icon" => "contacts"
-				],
-				[
-					"label" => "News",
-					"route" => "main",
-					"action" => "contacts",
-					"icon" => "contacts"
-				],
+				]
 			],
 
 			"second_navigation" => [

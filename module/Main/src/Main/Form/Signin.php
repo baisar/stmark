@@ -12,7 +12,7 @@
 		function __construct()
 		{
 			parent::__construct("Signin"); 
-			$this->setAttribute("class","singin"); 
+			$this->setAttribute("class","loginform"); 
 			$this->createElements(); 
 		}
 

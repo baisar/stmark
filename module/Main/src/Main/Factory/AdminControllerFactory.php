@@ -14,6 +14,7 @@
 		
 		public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
 		{
-			return new AdminController($container->get("Doctrine\ORM\EntityManager")); 	
+	        $auth = $container->get("Zend\Authentication\AuthenticationService"); 
+			return new AdminController($container->get("Doctrine\ORM\EntityManager"),$auth); 	
 		}
 	}

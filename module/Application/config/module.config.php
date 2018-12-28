@@ -52,6 +52,7 @@ return [
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'login'                   => __DIR__ . '/../view/layout/login.phtml',
             'admin'                   => __DIR__ . '/../view/layout/admin.phtml'
         ],
         'template_path_stack' => [
@@ -81,7 +82,7 @@ return [
          'authentication' => [
             'orm_default' => [
                 'object_manager' => 'Doctrine\ORM\EntityManager',
-                'identity_class' => 'Application\Entity\User',
+                'identity_class' => 'Application\Entity\Users',
                 'identity_property' => 'email',
                 'credential_property' => 'pass',
             ],

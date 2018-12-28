@@ -11,7 +11,7 @@
 					"allow" => [
 						"main" => [
 							"index" => "guest",
-							"logistic-services" => "guest",
+							"services" => "guest",
 							"apply-for-job" => "guest",
 							"resources" => "guest",
 							"contacts" => "guest",
@@ -29,12 +29,12 @@
 						],
 						"admin" => [
 							"index" => "guest",
-							"add-prod" => "admin",
-							"edit-prod" => "admin",
-							"remove-prod" => "admin",
+							"config" => "admin",
+							"pages" => "admin",
 							"add-cat" => "admin",
 							"edit-cat" => "admin",
 							"remove-cat" => "admin",
+							"add-page" => "admin"
 						]
 
 					],

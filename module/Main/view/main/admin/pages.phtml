@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="grid">
+			<div class="grid-item left" style="width:20%;">
+				<a href="<?php echo $this->url("admin",["action" => "add-page"]) ?>" class="addpage waves-effect black waves-light">
+					<i class="material-icons">add</i>
+				</a>
+			</div>
+		<?php  foreach($pages as $key => $page): ?>
+			<div class="grid-item left" style="width:20%;" data-id="<?php echo $page->getId() ?>">
+				<p><?php echo $page->getTitle() ?></p>
+				<?php if($page->getThumbnail()): ?>
+					<img src="<?php echo $this->basePath("img/{$page->getThumbnail()}") ?>" width="100%">
+				<?php else: ?>
+					<img src="<?php echo $this->basePath("img/noPhoto.jpg") ?>" width="100%">
+				<?php endif; ?>
+				<a href="<?php echo $this->url("admin",["action" => "pages", "id" => $page->getId()]) ?>" class="waves-effect">
+					<i class="material-icons left">edit</i>
+					Edit
+				</a>
+				<a href="<?php echo $this->url("admin",["action" => "pages", "id" => $page->getId()],["query" => ["delete" => 1]]) ?>" class="waves-effect deletePage" data-id="<?php echo $page->getId() ?>">
+					<i class="material-icons left">remove</i>
+					Delete
+				</a>
+				<?php if($page->getHidden()): ?>
+					<a data-id="<?php echo $page->getId()?>" class="waves-effect hidepage orange">
+						<i class="material-icons left">save_alt</i>
+						Hidden
+					</a>
+				<?php else: ?>
+					<a data-id="<?php echo $page->getId()?>" class="waves-effect hidepage">
+						<i class="material-icons left">save_alt</i>
+						Hide
+					</a>
+				<?php endif; ?>
+			</div>
+		<?php endforeach; ?>
+		
+	</div>
+</div>

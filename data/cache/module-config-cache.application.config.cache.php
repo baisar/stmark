@@ -19,6 +19,7 @@ return array (
       'navigation' => 'Zend\\Navigation\\Navigation',
       'Zend\\Session\\SessionManager' => 'Zend\\Session\\ManagerInterface',
       'InputFilterManager' => 'Zend\\InputFilter\\InputFilterPluginManager',
+      'FilterManager' => 'Zend\\Filter\\FilterPluginManager',
       'HydratorManager' => 'Zend\\Hydrator\\HydratorPluginManager',
       'MvcTranslator' => 'Zend\\Mvc\\I18n\\Translator',
       'TranslatorPluginManager' => 'Zend\\I18n\\Translator\\LoaderPluginManager',
@@ -43,7 +44,7 @@ return array (
       'LogProcessorManager' => 'Zend\\Log\\ProcessorPluginManagerFactory',
       'LogWriterManager' => 'Zend\\Log\\WriterPluginManagerFactory',
       'Zend\\InputFilter\\InputFilterPluginManager' => 'Zend\\InputFilter\\InputFilterPluginManagerFactory',
-      'FilterManager' => 'Zend\\Filter\\FilterPluginManagerFactory',
+      'Zend\\Filter\\FilterPluginManager' => 'Zend\\Filter\\FilterPluginManagerFactory',
       'Zend\\Paginator\\AdapterPluginManager' => 'Zend\\Paginator\\AdapterPluginManagerFactory',
       'Zend\\Paginator\\ScrollingStylePluginManager' => 'Zend\\Paginator\\ScrollingStylePluginManagerFactory',
       'Zend\\Hydrator\\HydratorPluginManager' => 'Zend\\Hydrator\\HydratorPluginManagerFactory',
@@ -626,7 +627,7 @@ return array (
       array (
         'objectManager' => 'doctrine.entitymanager.orm_default',
         'object_manager' => 'Doctrine\\ORM\\EntityManager',
-        'identity_class' => 'Application\\Entity\\User',
+        'identity_class' => 'Application\\Entity\\Users',
         'identity_property' => 'email',
         'credential_property' => 'pass',
       ),
@@ -658,7 +659,7 @@ return array (
           'port' => '3306',
           'user' => 'root',
           'password' => '',
-          'dbname' => 'stmark',
+          'dbname' => 'st',
           'charset' => 'utf8',
         ),
         'driverClass' => 'Doctrine\\DBAL\\Driver\\PDOMySql\\Driver',
@@ -862,6 +863,7 @@ return array (
       'application/index/index' => 'D:\\xampp\\htdocs\\st\\module\\Application\\config/../view/application/index/index.phtml',
       'error/404' => 'D:\\xampp\\htdocs\\st\\module\\Application\\config/../view/error/404.phtml',
       'error/index' => 'D:\\xampp\\htdocs\\st\\module\\Application\\config/../view/error/index.phtml',
+      'login' => 'D:\\xampp\\htdocs\\st\\module\\Application\\config/../view/layout/login.phtml',
       'admin' => 'D:\\xampp\\htdocs\\st\\module\\Application\\config/../view/layout/admin.phtml',
     ),
     'template_path_stack' => 
@@ -925,7 +927,7 @@ return array (
           'main' => 
           array (
             'index' => 'guest',
-            'logistic-services' => 'guest',
+            'services' => 'guest',
             'apply-for-job' => 'guest',
             'resources' => 'guest',
             'contacts' => 'guest',
@@ -944,12 +946,12 @@ return array (
           'admin' => 
           array (
             'index' => 'guest',
-            'add-prod' => 'admin',
-            'edit-prod' => 'admin',
-            'remove-prod' => 'admin',
+            'config' => 'admin',
+            'pages' => 'admin',
             'add-cat' => 'admin',
             'edit-cat' => 'admin',
             'remove-cat' => 'admin',
+            'add-page' => 'admin',
           ),
         ),
         'deny' => 
@@ -967,9 +969,9 @@ return array (
     array (
       0 => 
       array (
-        'label' => 'logistic services',
+        'label' => 'Services',
         'route' => 'main',
-        'action' => 'logistic-services',
+        'action' => 'services',
         'icon' => 'sync',
       ),
       1 => 
@@ -989,13 +991,6 @@ return array (
       3 => 
       array (
         'label' => 'Contacts',
-        'route' => 'main',
-        'action' => 'contacts',
-        'icon' => 'contacts',
-      ),
-      4 => 
-      array (
-        'label' => 'News',
         'route' => 'main',
         'action' => 'contacts',
         'icon' => 'contacts',

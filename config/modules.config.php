@@ -30,6 +30,5 @@ return [
     'DoctrineORMModule',
     'ZendDeveloperTools',
     'Application',
-    "Main",
-    // "ZendDeveloperTools"
+    "Main"
 ];

@@ -14,35 +14,107 @@
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
             ->prependStylesheet($this->basePath('css/admin.css'))
             ->prependStylesheet($this->basePath('css/materialize.min.css'))
-            ->prependStylesheet($this->basePath('css/flexslider.css'))
-            ->prependStylesheet($this->basePath('css/lightbox.css'))
+            ->prependStylesheet($this->basePath('dist/css/AdminLTE.min.css'))
+            ->prependStylesheet($this->basePath('dist/css/skins/_all-skins.min.css'))
+            ->prependStylesheet($this->basePath('bower_components/bootstrap/dist/css/bootstrap.min.css'))
+            ->prependStylesheet($this->basePath('bower_components/font-awesome/css/font-awesome.min.css'))
+            ->prependStylesheet($this->basePath('bower_components/Ionicons/css/ionicons.min.css'))
         ?>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <?= $this->headScript()
+            ->prependFile($this->basePath('js/admin.js'))
             ->prependFile($this->basePath('js/jquery.flexslider.js'))
             ->prependFile($this->basePath('js/lightbox.js'))
             ->prependFile($this->basePath('js/materialize.min.js'))
             ->prependFile($this->basePath('js/masonry.pkgd.js'))
-            ->prependFile($this->basePath('js/1.js'))
+            ->prependFile($this->basePath('ckeditor/ckeditor.js'))
         ?>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     </head>
-    <body>
-        <header>
-            <div>
-                <a href="<?php echo $this->url("home") ?>" id="logo" class="left <?php if(isset($this->layout()->hp)) echo "red-text active_logo" ?>">ST MARK(temporarily)</a>
-                <?php 
-                    $partialMenu = array('layout/topnav.phtml','default');
-                    $this->navigation('navigation')->menu()->setPartial($partialMenu);  
-                    echo $this->navigation("navigation");  
-                ?>
-            </div>
-        </header>
-        <a class="open_menu"></a>
+    <body class="skin-blue" data-spy="scroll" data-target="#scrollspy">
+      <div class="wrapper">
 
-        <?php echo $this->content ?>
-    </body>
+        <header class="main-header">
+          <!-- Logo -->
+          <a href="<?php echo $this->url("home") ?>" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>A</b>LT</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg">ST MARK</span>
+          </a>
+          <!-- Header Navbar: style can be found in header.less -->
+          <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Navbar Right Menu -->
+          </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+          <!-- sidebar: style can be found in sidebar.less -->
+          <div class="sidebar" id="scrollspy">
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="nav sidebar-menu">
+              <li>
+                <a href="<?php echo $this->url("admin") ?>">
+                  <i class="fa fa-circle-o"></i>
+                  Introduction
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo $this->url("admin",["action"=>"config"]) ?>">
+                  <i class="fa fa-circle-o"></i>
+                  Website config
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo $this->url("admin",["action" => "pages"]) ?>"><i class="fa fa-circle-o"></i>
+                  Pages
+                </a>
+              </li>
+              <!-- <li>
+                <a href="#" class="logout"><i class="fa fa-circle-o"></i>
+                  Logout
+                </a>
+              </li> -->
+            </ul>
+          </div>
+          <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Main content -->
+          <div class="content body">
+            
+              <?php echo $this->content ?>
+
+          </div><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+          <!-- Create the tabs -->
+          <div class="pad">
+            This is an example of the control sidebar.
+          </div>
+        </aside><!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+
+    </div><!-- ./wrapper -->
+
+        <!-- jQuery 3 -->
+        <!-- Bootstrap 3.3.7 -->
+        <script src="<?php echo $this->basePath("bower_components/bootstrap/dist/js/bootstrap.min.js") ?>"></script>
+        <!-- AdminLTE App -->
+        <script src="<?php echo $this->basePath("dist/js/adminlte.min.js") ?>"></script>
+        <!-- SlimScroll -->
+        <script src="<?php echo $this->basePath("bower_components/jquery-slimscroll/jquery.slimscroll.min.js") ?>"></script>
+        </body>
         <?= $this->inlineScript() ?>
 </html>

@@ -1,0 +1,45 @@
+<div class="col s6">
+	     	
+	     	<div class="left col s12 view1 radius">
+	     		<p>
+	     			<i class="material-icons left">assistant_photo</i>
+	     			<span class="left">Main picture</span>
+	     		</p>
+	     		<p style="clear: both; padding: 5px; "></p>
+	     		<?php if($product->getPicture()):  ?>
+					<a href="<?php echo $this->basePath("img/products/".$product->getPicture()) ?>" data-lightbox="roadtrip" class="remove-wrapper">
+						<span class="remove-prod" data-img="<?=$product->getPicture()?>">X</span>
+						<img src="<?php echo $this->basePath("img/products/small/".$product->getPicture()) ?>" >
+					</a>
+				<?php else:  ?>
+					<div class="no-photo">
+						<i class="material-icons left no_photo">photo</i>
+					</div>
+				<?php endif;  ?>
+				<p style="clear: both; padding: 5px; "></p>
+				<?php 
+					if($product->getOtherPics()): 
+						$array = json_decode($product->getOtherPics(),1); 
+					// print_r($array); 
+						if(is_array($array)): ?>
+						<ul class="bxslider">
+							<?php 
+							foreach ($array as $key => $value): ?>
+								<li>
+									<a href="<?php echo $this->basePath("img/products/".$value) ?>" data-lightbox="roadtrip" class="remove-wrapper-carousel">
+										<span class="remove-prod-carousel" data-img="<?=$value?>">X</span>
+										<img src="<?php echo $this->basePath("img/products/small/".$value) ?>" class="right" width="100">
+									</a>
+								</li>			
+							<?php 
+							endforeach; ?>
+						</ul>
+						<?php 
+						endif; 
+					endif; 
+				?>
+			</div>
+			<div class="hide">
+				<input type="hidden" class="product_id" value="<?=$product->getId()?>">
+			</div>
+	     </div>

@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'TckImageResizer' => array($vendorDir . '/tck/zf2-imageresizer/src'),
     'Imagine' => array($vendorDir . '/imagine/imagine/lib'),
-    'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'DoctrineORMModule\\' => array($vendorDir . '/doctrine/doctrine-orm-module/src'),

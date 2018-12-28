@@ -59,19 +59,23 @@
 			    $routeMatch = $e->getRouteMatch();
 			    $controller = $routeMatch->getMatchedRouteName(); 
 			    $action = $routeMatch->getParam('action');
-
 			    
 			    // application
 				$application = $e->getApplication();
 				$sm = $application->getServiceManager();
-	
-			    if($controller == "admin"){
-			    	$viewModel = $application->getMvcEvent()->getViewModel();
-			    	$viewModel->setTemplate("admin");
-			    }
+		    	$vm = $application->getMvcEvent()->getViewModel();
 
 				// identity 
 				$identity = $sm->get("doctrine.authenticationservice.orm_default")->getIdentity();
+
+
+		    	# set admin login layout
+		    	if($controller == "admin" && !$identity)
+		    		$vm->setTemplate("login");
+		    	
+				# set admin layout if it's admin
+		    	if($controller == "admin" && $identity)
+		    		$vm->setTemplate("admin");
 
 				// ACL
 				// @var Acl List Config
@@ -104,6 +108,11 @@
 				if(!$acl->hasResource($controller)) throw new \Exception("Resource ".$controller." wasnt found in the Acl", 1);
 				// if not allowed  - redirect setting error 302
 				if(!$acl->isAllowed($role,$controller,$action)){
+					// LOGIN PAGE
+					if($controller == "admin"){
+						$vm->setTemplate("login");
+						return $vm;
+					}
 					$url = $e->getRouter()->assemble([],["name" => "home"]);
 					$response = $e->getResponse();
 

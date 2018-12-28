@@ -9,7 +9,7 @@ return ['doctrine' => array(
                     'port'     => '3306',
                     'user'     => 'root',
                     'password' => '',
-                    'dbname'   => 'stmark',
+                    'dbname'   => 'st',
                     'charset'  => 'utf8',
                 )
             )

@@ -31,7 +31,7 @@ if (! class_exists(Application::class)) {
         . "- Type `docker-compose run zf composer install` if you are using Docker.\n"
     );
 }
-
+error_reporting(E_ALL | E_STRICT);
 // Retrieve configuration
 $appConfig = require __DIR__ . '/../config/application.config.php';
 if (file_exists(__DIR__ . '/../config/development.config.php')) {

@@ -5,6 +5,33 @@
         <meta charset="utf-8">
         <?= $this->headTitle('St Mark of Orlando LLC')->setSeparator(' - ')->setAutoEscape(false) ?>
 
+        <style>
+            #toHide{
+                position: fixed;
+                top:0;left:0;
+                width:100%;height: 100%;
+                background: rgb(0, 0, 0);
+                z-index: 999999;
+            }
+            .logo{
+                position: fixed;
+                top: 45% !important;
+                left: 50%;
+                z-index: 9999;
+                color: white !important;
+                height: auto;
+                margin-left: -160px;
+                width: 320px; height: 100%;
+                transition: all .5s;
+                line-height: 70px;
+                font-size: 27px;
+                font-weight: bold;
+                text-align: center;
+                font-family: 'Oswald', sans-serif;
+                opacity: 1;
+            }
+        </style>
+
         <?= $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
@@ -12,6 +39,7 @@
 
         <!-- Le styles -->
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/media.css'))
             ->prependStylesheet($this->basePath('css/style.css'))
             ->prependStylesheet($this->basePath('css/materialize.min.css'))
             ->prependStylesheet($this->basePath('css/flexslider.css'))
@@ -30,15 +58,27 @@
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     </head>
     <body>
+        <div id="toHide">
+            <a id="logo" class="logo">
+                    "<span style="
+                        background: rgba(190,22,34,1);
+                        padding: 0 5px;
+                        margin: 0 0 0 5px;
+                        ">ST</span> MARK OF ORLANDO"
+            </a>
+        </div>
         <header>
             <div>
-                <a href="<?php echo $this->url("home") ?>" id="logo" class="left <?php if(isset($this->layout()->hp)) echo "red-text active_logo" ?>"></a>
+                <a href="<?php echo $this->url("home") ?>" id="logo" class="left <?php if(isset($this->layout()->hp)) echo "active_logo" ?>">"<span>ST</span> MARK OF ORLANDO "</a>
                 <?php 
                     $partialMenu = array('layout/topnav.phtml','default');
                     $this->navigation('navigation')->menu()->setPartial($partialMenu);  
                     echo $this->navigation("navigation");  
                 ?>
             </div>
+            <script type="text/javascript">
+                $(window).on("load",function(){$("#toHide").hide()})
+            </script>
         </header>
         <a class="open_menu"></a>
 
@@ -50,35 +90,68 @@
                 <!-- CONTACTS -->
                 <div class="col s4">
                     <ul>
-                        <li>
+                        <li style="padding-left: 0;">
                             <p>
                                 <i class="material-icons left">phone</i>
                                 Contact us
                             </p>
                         </li>
                         <li>
-                            <span class="left white-text">Main line:</span><a href="">1-800-222-1234</a>
+                            <span class="left white-text">Dispatch 1:</span>
+                            <a href="callto: 407-917-3695">
+                                407-917-3695
+                            </a>
                         </li>
                         <li>
-                            <span class="left white-text">Dispatch: </span><a href="">1-800-222-1234</a>
+                            <span class="left white-text">Dispatch 2:</span>
+                            <a href="callto:407-917-4239">
+                                407-917-4239
+                            </a>
                         </li>
                         <li>
-                            <span class="left white-text">Accounting: </span><a href="">1-800-222-1234</a>
+                            <span class="left white-text">Dispatch 3:</span>
+                            <a href="callto:630-793-6600">
+                                630-793-6600
+                            </a>
+                        </li>
+                        <li>
+                            <span class="left white-text">Safety 1:</span>
+                            <a href="callto:239-287-8537">
+                                239-287-8537
+                            </a>
+                        </li>
+                        <li>
+                            <span class="left white-text">Safety 2:</span>
+                            <a href="callto: 702-290-2545">
+                                702-290-2545
+                            </a>
                         </li>
                     </ul>
 
                     <ul style="padding-bottom: 0;">
-                        <li>
+                        <li style="padding-left: 0;">
                             <p>
                                 <i class="material-icons left">email</i>
                                 Email us
                             </p>
                         </li>
                         <li>
-                            <span class="left white-text">Main email: </span><a href="">stmarkoforlando@gmail.com</a>
+                            <span class="left white-text">Main:</span>
+                            <a href="mailto:stmarkoforlando@gmail.com">
+                                stmarkoforlando@gmail.com
+                            </a>
                         </li>
                         <li>
-                            <span class="left white-text">Team: </span> <a href="">stmark.team@gmail.com</a>
+                            <span class="left white-text">Safety:</span>
+                            <a href="mailto:stmarksafety@gmail.com">
+                                stmarksafety@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <span class="left white-text">Claims:</span>
+                            <a href="mailto:claims.stmark@gmail.com">
+                                claims.stmark@gmail.com
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -87,26 +160,36 @@
                 <!-- PAGES -->
                 <div class="col s4">
                     <ul>
-                        <li>
+                        <li style="padding-left: 0;">
                             <p>
                                 <i class="material-icons left">filter</i>
-                                All pages
+                                Pages
                             </p>
                         </li>
                         <li>
-                            <a href="">Logistics Services</a>
+                            <a href="<?=$this->url("main",["action"=>"services"])?>">
+                                Services
+                            </a>
                         </li>
                         <li>
-                            <a href="">Apply for job</a>
+                            <a href="<?=$this->url("main",["action"=>"apply-for-job"])?>">
+                                Apply for job
+                            </a>
                         </li>
                         <li>
-                            <a href="">Resources</a>
+                            <a href="<?=$this->url("main",["action"=>"about-us"])?>">
+                                About us
+                            </a>
                         </li>
                         <li>
-                            <a href="">Contacts</a>
+                            <a href="<?=$this->url("main",["action"=>"contacts"])?>">
+                                Contacts
+                            </a>
                         </li>
                         <li>
-                            <a href="">Enter site</a>
+                            <a href="<?=$this->url("main",["action"=>"admin"])?>">
+                                Admin panel
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -118,6 +201,7 @@
                 </div>
             </div>
         </footer>
+        <input type="hidden" id="hp" value="<?= $this->url("home")?>">
     </body>
         <?= $this->inlineScript() ?>
 </html>

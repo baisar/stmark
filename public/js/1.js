@@ -1,41 +1,46 @@
 $(function() {
 
-// Homepage
-var hp = "http://st"; 
-
-// Setting mainpage image content to 100% with window size 
-$("#slider").css("height",$(window).height())
-// $(window).resize(function() {
-// 	$("#slider").css("height",$(this).height())
-// })
-// Activating collapsible
-$('.collapsible').collapsible();
-
-// Contact page
-$("#Contacts").submit(function() {
+var winHeight = $(window).height();
+var hp = "http://st";
+$( window ).on( "load", function(){
+	$(".grid").masonry()
+} );
+// ================================
+if(winHeight == 969) $("#slider").css("height",$(window).height())
+else $("#slider").css("height",969)
+// ================================
+$('select').formSelect();
+$(".grid").masonry()
+// APPLY FOR JOB
+$("#Apply").submit(function() {
 	var form_data = new FormData(this);
-	M.toast({html : "Message is being sent, please wait",displayLength: 4000});
-	$(".progress").show();
 	$(this).addClass("disabledbutton");
+
+	M.toast({html: "Form is being submitted"});
+
 	$.ajax({
-		url:hp + "/contacts",
-		type: "POST",
-        cache: false,
+		url: hp + "/apply-for-job/12",
+		type: "post",
+		cache: false,
         contentType: false,
         processData: false,
-        data: form_data,
-        success: function(data){
-			console.log(data);	
+		data: form_data,
+		success: function(data) {
+			M.Toast.dismissAll()
+			console.log(data);
+			data = $.parseJSON(data);
+			if(data.cv){
+				M.toast({html: "Attached file is not PDF format file, or more than 4mb",displayLength: 40000})
+				$("#Apply").removeClass("disabledbutton");
+
+			}
+			if(data.status == "ok"){
+				M.toast({html: "Form has successfully been submitted, you will get an answer as soon as possible, thanks",displayLength: 40000})
+			}
 		}
 	})
 	return false;
 })
-$('.slider').flexslider({
-    animation: "slide",
-    animationLoop: false,
-    itemWidth: 210,
-    itemMargin: 5
-  });
 
 
 
@@ -46,20 +51,5 @@ $('.slider').flexslider({
 
 
 
-
-
-/*$(window).scroll(function() {
-	var win = $(window).scrollTop();
-	if(win >= 70){
-		$("header").css({"background":"rgba(0,0,0,.9)"});
-		$(".menu a").css("opacity",1);
-	}
-	else{
-		$("header").css({"background":"transparent"});
-		$(".menu a").css("opacity",".7");
-	}
-	console.log(win)
-})
-*/
 
 })

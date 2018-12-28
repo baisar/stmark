@@ -1,92 +1,74 @@
 <!-- SLIDER -->
         <div id="slider">
-            <img src="<?php echo $this->basePath("/18042304_main_1200.jpg") ?>">
+            <img src="<?php echo $this->basePath("/truck1.png") ?>">
             <div id="div">
                 <h1>
-                    'St Mark of Orlando' <span style="opacity: .5;">LLC</span>
+                    WE ARE TRYING TO DO <br>
+                    MORE AND BETTER
                 </h1>
-                <p>
-                    Logistics company, Aurora IL
-                </p>
-                <a href="<?php echo $this->url("main",["action" => "logistic-services"]) ?>" class="btn waves-effect more orange black-text bold">
+                <a href="<?php echo $this->url("main",["action" => "services"]) ?>" class="btn waves-effect more white-text bold">
                     <i class="material-icons right">add</i>
-                    More about logistics
+                    More about services
                 </a>
+            </div>
+
+            <div id="usa">
+                <div>
+                    <img src="<?php echo $this->basePath("/usa.png") ?>">
+                </div>
+                <span class="all">ALL OVER USA</span>
+            </div>
+
+            <div id="trusted">
+                <p class="bold">Trusted by</p>
+                <ul class="clear">
+                    <li id="trusted1">
+                        <a><img src="<?php echo $this->basePath("img/logos/bmw.png") ?>"></a>
+                    </li>
+                    <li id="trusted2">
+                        <a><img src="<?php echo $this->basePath("img/logos/apple.png") ?>"></a>
+                    </li>
+                    <li id="trusted3">
+                        <a><img src="<?php echo $this->basePath("img/logos/amazon.png") ?>"></a>
+                    </li>
+                    <li id="trusted4">
+                        <a><img src="<?php echo $this->basePath("img/logos/fedex.png") ?>"></a>
+                    </li>
+                </ul>
+                <span class="clear white-text left" style="margin-top: 20px;">
+                    You can completely rely on us
+                </span>
+                
             </div>
         </div>
         <!-- !SLIDER -->
-        
-        <!-- TRUSTED BY #trustedBy -->
-        <div class="white">
-            <div class="trusted overflow">
-                <a class="left">Trusted by</a>
-                <ul class="clear">
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/bmw.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/toyota.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/fedex.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/bestbuy.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/apple.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/mazda.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/t.png") ?>"></a>
-                    </li>
-                    <li>
-                        <a><img src="<?php echo $this->basePath("img/a.png") ?>"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- !TRUSTED -->
 
-        <div class="row mw services" style="margin: 60px auto;">
-            <div class="main_div clear">
-                <div class="col s4 main_divs">
-                    <a class="left service">
-                        <span>Service</span>
-                        <img src="<?php echo $this->basePath("EFS_CC_PFJjbHunt_Promo.jpg") ?>" width="100%">
+        <p class="clear"></p>
+
+        <div class="row mw">
+            <div class="main_div">
+                <?php 
+                    if($services):
+                        foreach ($services as $key => $value):
+                ?>
+                <div class="col s4 service">
+                    <a href="<?php echo $this->url("main",["action" => "services","id" => $value->getId()]) ?>" class="left waves-effect">
+                        <img src="<?php echo $this->basePath("/img/{$value->getThumbnail()}") ?>" width="100%">
+                        <span>
+                            <?php echo $value->getTitle() ?> >>
+                            
+                        </span>
                     </a>
+                    <!-- <p><?= $value->getShort() ?></p> -->
                 </div>
-                <div class="col s4 main_divs">
-                    <a class="left service">
-                        <span>Service</span>
-                        <img src="<?php echo $this->basePath("EFS_CC_PFJjbHunt_Promo.jpg") ?>" width="100%">
-                    </a>
-                </div>
-                <div class="col s4 main_divs">
-                    <a class="left service">
-                        <span>Service</span>
-                        <img src="<?php echo $this->basePath("EFS_CC_PFJjbHunt_Promo.jpg") ?>" width="100%">
-                    </a>
-                </div>
-                <div class="col s4 main_divs">
-                    <a class="left service">
-                        <span>Service</span>
-                        <img src="<?php echo $this->basePath("EFS_CC_PFJjbHunt_Promo.jpg") ?>" width="100%">
-                    </a>
-                </div>
-                <div class="col s4 main_divs">
-                    <a class="left service">
-                        <span>Service</span>
-                        <img src="<?php echo $this->basePath("EFS_CC_PFJjbHunt_Promo.jpg") ?>" width="100%">
-                    </a>
-                </div>
-                <div class="col s4 main_divs">
-                    <a class="left service">
-                        <span>Service</span>
-                        <img src="<?php echo $this->basePath("EFS_CC_PFJjbHunt_Promo.jpg") ?>" width="100%">
-                    </a>
-                </div>
+                <?php endforeach; endif; ?>
+
+                <p class="clear"></p>
+                
+                <a href="<?=$this->url("main",["action"=>"services"])?>" class="btn bk waves-effect more white-text bold" style="margin-top: 40px;">
+                    <i class="material-icons right">add</i>
+                    View all services
+                </a>
             </div>
         </div>
+        <p class="clear"></p>
