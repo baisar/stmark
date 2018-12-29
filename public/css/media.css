@@ -15,7 +15,7 @@
 /*========================================*/
 
 @media only screen and (max-width: 1400px){
-#div{ top: 37% !important; left: 50% !important; margin-left: -350px; }
+#div{ top: 60% !important; left: 50% !important; margin-left: -350px; }
 #usa{ display: none; }
 #trusted{ right: 50% !important; margin-left: -278px; }
 #slider > img{
@@ -23,15 +23,30 @@
 }
 .pagecontent{ margin: 0 20px; }
 footer{ padding: 40px 10px; }
+.mw{ margin: 40px 20px 70px; }
+.apply{ margin: 40px auto 70px; }
 }
 /*========================================*/
 
-@media only screen and (max-width: 697px){
-	
+@media only screen and (max-width: 1200px){
+.grid-item{ width: 33.33% !important;}
+.menu{float: right;padding-right: 20px;}
+.service a{ font-size: 17px; }
+#slider > img{left:-480px;}
 }
 /*========================================*/
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 890px){
+	.menu i{ display: none; }
+	#slider > img{ left: -680px; }
+
+}
+/*========================================*/
+@media only screen and (max-width: 750px){
+
+.grid-item{ width: 50% !important; }
+.mw{margin: 40px 10px 70px;}
+#slider > img{ left: -880px; }
 	
 }
 /*========================================*/

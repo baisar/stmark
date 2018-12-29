@@ -106,3 +106,16 @@ a{ color: #000; }
 .sidebar-menu{
 	padding: 20px 0;
 }
+.main-header {
+	position: fixed;
+	max-height: 100px;
+	z-index: 1030;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+}
+.main-sidebar{
+	position: fixed;
+}
+.content-wrapper{ padding-top: 50px }

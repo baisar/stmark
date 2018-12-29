@@ -2,12 +2,20 @@ $(function() {
 
 var winHeight = $(window).height();
 var hp = "http://st";
-$( window ).on( "load", function(){
-	$(".grid").masonry()
-} );
+$( window ).on( "load", function(){ $(".grid").masonry(); } );
+
 // ================================
-if(winHeight == 969) $("#slider").css("height",$(window).height())
-else $("#slider").css("height",969)
+if(winHeight >= 969){
+	$("#slider").css("height",969)
+	// $("#slider").css("height",$(window).height())
+}
+else if(winHeight < 969){
+	$("#slider").css("height",600)
+	$("#usa,#trusted").hide()
+	$("#div").css({"top" : "60%"})
+	$(".main_div").css({"margin":"100px 0 0"})
+}
+
 // ================================
 $('select').formSelect();
 $(".grid").masonry()

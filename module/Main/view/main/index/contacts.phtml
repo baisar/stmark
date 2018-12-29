@@ -1,8 +1,9 @@
 <!--PAGE HEADER -->
 <div class="pageheader">
 	<img src="<?php echo $this->basePath("contact.jpg") ?>">
-	<h1 class="bold">
-		CONTACTS
+	<h1 class="bold uppercase">
+		Contacts
+		<?php //echo $page->getTitle() ?>
 	</h1>
 </div>
 <!-- !PAGE HEADER -->
@@ -10,11 +11,11 @@
 <!-- PAGE CONTENT -->
 <div class="mw row pagecontent contacts">
 	<h2 class="bold">
-		"ST MARK OF ORLANDO" llc
+		<?php echo $this->layout()->config->getTitle() ?>
 	</h2>
 	<span>
 		<i class="material-icons left">location_on</i>
-		843 Pontiac CT Unit 625, Aurora, IL 60502
+		<?php echo $this->layout()->config->getAddress() ?>
 	</span>
 	<p class="clear border" style="margin: 40px 0 40px;"></p>
 	
@@ -33,11 +34,66 @@
 			Call us
 		</p> 
 		<ul class="nolist" style="padding-top: 0;">
-			<li><p>Dispatch main: <a href="">407-917-3695</a></p></li>
-			<li><p>Dispatch: <a href="">407-917-4239</a></p></li>
-			<li><p>Dispatch: <a href="">630-793-6600</a></p></li>
-			<li><p>Safety: <a href="">239-287-8537</a></p></li>
-			<li><p>Safety: <a href="">702-209-2545</a></p></li>
+			<?php if($phone = $this->layout()->config->getPhone1()): ?>
+				<li>
+					<?php
+	                    $phone = $this->layout()->config->getPhone1();
+	                    $ar = preg_split("#/#", $phone);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getPhone2()): ?>
+				<li>
+					<?php
+	                    $phone2 = $this->layout()->config->getPhone2();
+	                    $ar = preg_split("#/#", $phone2);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getPhone3()): ?>
+				<li>
+					<?php
+	                    $phone3 = $this->layout()->config->getPhone3();
+	                    $ar = preg_split("#/#", $phone3);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getPhone4()): ?>
+				<li>
+					<?php
+	                    $phone4 = $this->layout()->config->getPhone4();
+	                    $ar = preg_split("#/#", $phone4);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getPhone5()): ?>
+				<li>
+					<?php
+	                    $phone5 = $this->layout()->config->getPhone5();
+	                    $ar = preg_split("#/#", $phone5);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
 		</ul>
 		<div class="clear" style="margin: 20px 0; max-width: 270px;"></div>
 		<p class="bold">
@@ -45,9 +101,54 @@
 			Mail us
 		</p>
 		<ul>
-			<li>
-				<span><a href="">info@stmarkoforlando.com</a></span>
-			</li>
+			<?php if($this->layout()->config->getEmail()): ?>
+				<li>
+					<?php
+	                    $email = $this->layout()->config->getEmail();
+	                    $ar = preg_split("#/#", $email);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getEmail2()): ?>
+				<li>
+					<?php
+	                    $email2 = $this->layout()->config->getEmail2();
+	                    $ar = preg_split("#/#", $email2);
+	                ?>
+	                <span class="left"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getEmail3()): ?>
+				<li>
+					<?php
+		                $email3 = $this->layout()->config->getEmail3();
+		                $ar = preg_split("#/#", $email3);
+		            ?>
+		            <span class="left"><?php echo $ar[0] ?>:</span>
+		            <a href="callto:<?php echo $ar[1] ?>">
+		                <?php echo $ar[1] ?>
+		            </a>
+				</li>
+			<?php endif; ?>
+			<?php if($this->layout()->config->getEmail4()): ?>
+				<li>
+					<?php
+	                    $email4 = $this->layout()->config->getEmail4();
+	                    $ar = preg_split("#/#", $email4);
+	                ?>
+	                <span class="left white-text"><?php echo $ar[0] ?>:</span>
+	                <a href="callto:<?php echo $ar[1] ?>">
+	                    <?php echo $ar[1] ?>
+	                </a>
+				</li>
+			<?php endif; ?>
 		</ul>
 	</div>
 	<!-- !ADDRESS -->

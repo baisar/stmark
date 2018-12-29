@@ -126,6 +126,13 @@ class Config
      */
     private $phone5;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="address", type="text", length=65535, precision=0, scale=0, nullable=true, unique=false)
+     */
+    private $address;
+
 
     /**
      * Get id.
@@ -495,5 +502,29 @@ class Config
     public function getPhone5()
     {
         return $this->phone5;
+    }
+
+    /**
+     * Set address.
+     *
+     * @param string|null $address
+     *
+     * @return Config
+     */
+    public function setAddress($address = null)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address.
+     *
+     * @return string|null
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

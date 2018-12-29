@@ -33,10 +33,9 @@
         </style>
 
         <?= $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendName('viewport', 'width=device-width')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-
         <!-- Le styles -->
         <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
             ->prependStylesheet($this->basePath('css/media.css'))
@@ -64,7 +63,7 @@
                         background: rgba(190,22,34,1);
                         padding: 0 5px;
                         margin: 0 0 0 5px;
-                        ">ST</span> MARK OF ORLANDO"
+                        ">ST</span> MARK OF ORLANDO "
             </a>
         </div>
         <header>
@@ -97,33 +96,53 @@
                             </p>
                         </li>
                         <li>
-                            <span class="left white-text">Dispatch 1:</span>
-                            <a href="callto: 407-917-3695">
-                                407-917-3695
+                            <?php
+                                $phone = $this->layout()->config->getPhone1();
+                                $ar = preg_split("#/#", $phone);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="callto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                         <li>
-                            <span class="left white-text">Dispatch 2:</span>
-                            <a href="callto:407-917-4239">
-                                407-917-4239
+                            <?php
+                                $phone2 = $this->layout()->config->getPhone2();
+                                $ar = preg_split("#/#", $phone2);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="callto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                         <li>
-                            <span class="left white-text">Dispatch 3:</span>
-                            <a href="callto:630-793-6600">
-                                630-793-6600
+                            <?php
+                                $phone3 = $this->layout()->config->getPhone3();
+                                $ar = preg_split("#/#", $phone3);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="callto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                         <li>
-                            <span class="left white-text">Safety 1:</span>
-                            <a href="callto:239-287-8537">
-                                239-287-8537
+                            <?php
+                                $phone4 = $this->layout()->config->getPhone4();
+                                $ar = preg_split("#/#", $phone4);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="callto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                         <li>
-                            <span class="left white-text">Safety 2:</span>
-                            <a href="callto: 702-290-2545">
-                                702-290-2545
+                            <?php
+                                $phone5 = $this->layout()->config->getPhone5();
+                                $ar = preg_split("#/#", $phone5);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="callto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                     </ul>
@@ -136,21 +155,33 @@
                             </p>
                         </li>
                         <li>
-                            <span class="left white-text">Main:</span>
-                            <a href="mailto:stmarkoforlando@gmail.com">
-                                stmarkoforlando@gmail.com
+                            <?php
+                                $email = $this->layout()->config->getEmail();
+                                $ar = preg_split("#/#", $email);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="mailto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                         <li>
-                            <span class="left white-text">Safety:</span>
-                            <a href="mailto:stmarksafety@gmail.com">
-                                stmarksafety@gmail.com
+                            <?php
+                                $email2 = $this->layout()->config->getEmail2();
+                                $ar = preg_split("#/#", $email2);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="mailto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                         <li>
-                            <span class="left white-text">Claims:</span>
-                            <a href="mailto:claims.stmark@gmail.com">
-                                claims.stmark@gmail.com
+                            <?php
+                                $email3 = $this->layout()->config->getEmail3();
+                                $ar = preg_split("#/#", $email3);
+                            ?>
+                            <span class="left white-text"><?php echo $ar[0] ?>:</span>
+                            <a href="mailto:<?php echo $ar[1] ?>">
+                                <?php echo $ar[1] ?>
                             </a>
                         </li>
                     </ul>

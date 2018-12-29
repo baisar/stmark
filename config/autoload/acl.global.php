@@ -31,10 +31,10 @@
 							"index" => "guest",
 							"config" => "admin",
 							"pages" => "admin",
-							"add-cat" => "admin",
-							"edit-cat" => "admin",
+							"add-page" => "admin",
+							"edit-page" => "admin",
 							"remove-cat" => "admin",
-							"add-page" => "admin"
+							"config" => "admin"
 						]
 
 					],

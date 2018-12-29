@@ -153,12 +153,6 @@
 			];
 		}
 
-		// resources
-		public function resourcesAction()
-		{
-			# code...
-		}
-
 		// about us
 		public function aboutUsAction()
 		{
@@ -171,26 +165,13 @@
 
 			return [ "page" => $result ];
 		}
-		
-		// page action
-		public function pageAction()
-		{
-			// Doctrine\ORM\EntityManager
-			$manager = $this->manager; 
-		}
 
-		// operations
-		public function opAction()
+		public function contactsAction()
 		{
 			// Doctrine\ORM\EntityManager
 			$manager = $this->manager; 
 
-			# kick to hp if not AJAX/GET request
-			if(!$this->getRequest()->isPost()) return $this->redirect()->toRoute("home");
-		}
-
-		public function contactsAction($value='')
-		{
-			# code...
+			// $query = $manager->createQuery("SELECT u FROM Application\Entity\Pages u WHERE u.id = ");
+			// $result = $query->getResult();
 		}
 	}

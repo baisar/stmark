@@ -51,7 +51,6 @@
 	    	// ACL
 			$eventManager = $application->getEventManager();
 			$eventManager->attach(\Zend\Mvc\MvcEvent::EVENT_DISPATCH, array($this, 'onDispatch'));
-
 		}
 
 		public function onDispatch(\Zend\Mvc\MvcEvent $e)
@@ -64,6 +63,12 @@
 				$application = $e->getApplication();
 				$sm = $application->getServiceManager();
 		    	$vm = $application->getMvcEvent()->getViewModel();
+
+		    	$doctrine = $sm->get("Doctrine\ORM\EntityManager");
+		    	$query = $doctrine->createQuery("SELECT u FROM Application\Entity\Config u");
+		    	$result = $query->getResult();
+
+		    	$vm->setVariables(["config" => $result[0]]);
 
 				// identity 
 				$identity = $sm->get("doctrine.authenticationservice.orm_default")->getIdentity();
@@ -104,15 +109,10 @@
 							break;
 					}
 				}
-				// echo $role;
+
 				if(!$acl->hasResource($controller)) throw new \Exception("Resource ".$controller." wasnt found in the Acl", 1);
 				// if not allowed  - redirect setting error 302
 				if(!$acl->isAllowed($role,$controller,$action)){
-					// LOGIN PAGE
-					if($controller == "admin"){
-						$vm->setTemplate("login");
-						return $vm;
-					}
 					$url = $e->getRouter()->assemble([],["name" => "home"]);
 					$response = $e->getResponse();
 
@@ -122,8 +122,5 @@
 					$response->sendHeaders();
 					exit();
 				}
-
-				// print_r($config);
-				// $acl = new Acl();
 			}
 	}

@@ -245,6 +245,8 @@
 			$query = $manager->createQuery("SELECT u FROM Application\Entity\Config u WHERE u.id = 1");
 			$result = $query->getResult(); 
 
+			// echo "<pre>".print_r($result,1)."</pre>";
+
 			# config form
 			$form = new Config($manager);
 			$form

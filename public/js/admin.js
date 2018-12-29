@@ -6,9 +6,9 @@ var winHeight = $(window).height();
 $("#wrapper,.logincontainer").height(winHeight)
 $(".grid").masonry()
 $('select').formSelect();
-$(document).load(function() {
+$( window ).on( "load", function(){
 	$(".grid").masonry()
-})
+} );
 
 // signin
 $(".loginform").submit(function() {
@@ -124,6 +124,7 @@ $("#config").submit(function() {
 		processData: false,
 		data: form_data,
 		success: function (data) {
+			console.log(data);
 			M.Toast.dismissAll()
 			data = $.parseJSON(data)
 			if(data.status == "ok"){

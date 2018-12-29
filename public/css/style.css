@@ -5,7 +5,7 @@ body{
 	background: #000;
 	width:100%;
 	max-width: 1920px; 
-	/*min-width: 1900px; */
+	min-width: 750px; 
 	margin: 0 auto;
 	/*overflow: hidden;*/
 }
@@ -371,6 +371,10 @@ footer ul li > span{
 	text-transform: uppercase;
 	/*color: white;*/
 }
+.callus > p i{
+	position: relative;
+	top: 6px;
+}
 .callus ul{
 	margin: 0px 0;
 	padding-left: 40px;
@@ -378,7 +382,10 @@ footer ul li > span{
 .callus ul li{
 	padding: 5px 0 0;
 }
-.callus ul li p i{  }
+.callus ul li span{
+	font-weight: bold;
+	padding-right: 10px;
+}
 .contacts form{
 	box-shadow: 0 0 4px grey;
 	padding: 0 20px 20px !important;

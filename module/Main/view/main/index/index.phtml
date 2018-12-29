@@ -2,9 +2,8 @@
         <div id="slider">
             <img src="<?php echo $this->basePath("/truck1.png") ?>">
             <div id="div">
-                <h1>
-                    WE ARE TRYING TO DO <br>
-                    MORE AND BETTER
+                <h1 class="uppercase">
+                    <?php echo $this->layout()->config->getMainPageText() ?>
                 </h1>
                 <a href="<?php echo $this->url("main",["action" => "services"]) ?>" class="btn waves-effect more white-text bold">
                     <i class="material-icons right">add</i>
@@ -20,7 +19,9 @@
             </div>
 
             <div id="trusted">
-                <p class="bold">Trusted by</p>
+                <p class="bold">
+                    <?php echo $this->layout()->config->getTrusted() ?>
+                </p>
                 <ul class="clear">
                     <li id="trusted1">
                         <a><img src="<?php echo $this->basePath("img/logos/bmw.png") ?>"></a>
@@ -36,7 +37,7 @@
                     </li>
                 </ul>
                 <span class="clear white-text left" style="margin-top: 20px;">
-                    You can completely rely on us
+                    <?php echo $this->layout()->config->getTrustedText() ?>
                 </span>
                 
             </div>

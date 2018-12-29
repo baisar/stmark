@@ -57,7 +57,7 @@
 	    	<b class="left">Strict size: 450X300</b>
 	    	<p class="clear"></p>
 	    	<?php if($page->getThumbnail()): ?>
-		    	<img src="<?php echo $this->basePath("img/{$page->getThumbnail()}") ?>" width="100%" data-id="<?php echo $page->getId() ?>">
+		    	<img src="<?php echo $this->basePath("img/{$page->getThumbnail()}") ?>" data-id="<?php echo $page->getId() ?>">
 		    	<p class="clear"></p>
 		    	<!-- <button class="btn black addImg" data-page-id="<?php echo $page->getId() ?>" for="thumbnail">Change</button> -->
 		    	<a class="btn black delImg" data-page-id="<?php echo $page->getId() ?>" data-del-img="<?php echo $page->getThumbnail() ?>">Delete</a>
